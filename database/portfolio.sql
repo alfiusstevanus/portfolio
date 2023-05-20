@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 01:16 PM
+-- Generation Time: May 20, 2023 at 07:39 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -30,17 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `skills` (
   `id` int(11) NOT NULL,
   `keahlian` varchar(50) DEFAULT NULL,
-  `deskripsi` text DEFAULT NULL
+  `deskripsi` text DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `skills`
 --
 
-INSERT INTO `skills` (`id`, `keahlian`, `deskripsi`) VALUES
-(1, 'Bahasa C', 'Di semester 2 kemarin saya sudah belajar banyak mengenai bahasa C, sehingga bisa dibilang kemampuan bahasa C saya cukup baik. Saya dapat melakukan beberapa Algoritma sederhana yang bisa diterapkan di bahasa C, mulai dari Looping, Sorting, Searching, dan program sederhana lainnya. '),
-(2, 'JAVA', 'Di semester 3 kemarin saya sudah belajar banyak mengenai bahasa JAVA, sehingga bisa dibilang kemampuan bahasa JAVA saya cukup baik. Saya dapat melakukan Create, Read, Update, dan Delete menggunakan bahasa JAVA dan juga beberapa method lainnya. Saya juga sudah bisa membuat aplikasi berbasis GUI dengan menggunakan Java Swing.'),
-(3, 'PHP', 'Di semester 4 ini saya sudah belajar banyak mengenai bahasa PHP, sehingga bisa dibilang kemampuan bahasa PHP saya cukup baik. Saya dapat melakukan Create, Read, Update, dan Delete menggunakan bahasa PHP dan juga beberapa method lainnya.');
+INSERT INTO `skills` (`id`, `keahlian`, `deskripsi`, `photo`) VALUES
+(1, 'Bahasa C', 'Di semester 2 kemarin saya sudah belajar banyak mengenai bahasa C, sehingga bisa dibilang kemampuan bahasa C saya cukup baik. Saya dapat melakukan beberapa Algoritma sederhana yang bisa diterapkan di bahasa C, mulai dari Looping, Sorting, Searching, dan program sederhana lainnya. ', 'Bahasa-c.jpg'),
+(2, 'Java', 'Di semester 3 kemarin saya sudah belajar banyak mengenai bahasa JAVA, sehingga bisa dibilang kemampuan bahasa JAVA saya cukup baik. Saya dapat melakukan Create, Read, Update, dan Delete menggunakan bahasa JAVA dan juga beberapa method lainnya. Saya juga sudah bisa membuat aplikasi berbasis GUI dengan menggunakan Java Swing.', 'Java.jpg'),
+(3, 'PHP', 'Di semester 4 ini saya sudah belajar banyak mengenai bahasa PHP, sehingga bisa dibilang kemampuan bahasa PHP saya cukup baik. Saya dapat melakukan Create, Read, Update, dan Delete menggunakan bahasa PHP dan juga beberapa method lainnya.', 'PHP.jpg'),
+(28, 'Editing Video', 'Saya memiliki keahlian tersendiri tentang edit video. Meskipun mungkin saya belum expert, tetapi saya bisa membuat video menarik selama kompleksitasnya masih sederhana.', 'Editing-Video.jpg'),
+(30, 'Bermain Gitar', 'Untuk bermain gitar ini sebenarnya bisa dibilang hanya sekadar bisa saja, saya tidak expert, saya hanya memainkannya jika ada waktu luang. Tetapi mungkin bisa dimasukan kedalam skill saya, biar pas 6 aja :)', 'Bermain-Gitar.jpg'),
+(31, 'Bermain Games', 'Mungkin masih ada banyak skill saya yang lain, tetapi saya akan memasukan ini untuk yang terakhir (sementara) yaitu bermain games. Games saya sudah saya mainkan mungkin tidak sebanyak orang lain, tetapi biasanya sedikit games yang saya mainkan tersebut sangat sangat saya kuasai dengan baik.', 'Bermain-Games.jpg');
 
 -- --------------------------------------------------------
 
@@ -91,7 +95,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user`

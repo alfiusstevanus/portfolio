@@ -106,7 +106,6 @@ include 'layout/header.php';
                         </div>
                         <div>
                             <img src="images/<?= $row['photo'] ?>" class="ml-2" width="265px" alt="<?= $row['keahlian'] ?>">
-                            <!-- <textarea class="form-control text-left border-0 my-2 no-scrol readonly-textarea" cols="30" rows="10" readonly><?= $row['deskripsi'] ?></textarea> -->
                         </div>
                         <div class="col-lg-4 mt-3">
                             <a class="btn btn-primary bg-success border-0 py-3" role="button" data-bs-toggle="modal" data-bs-target="#editSkill<?= $row['id'] ?>">
@@ -194,12 +193,11 @@ include 'layout/header.php';
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h5>Anda yakin ingin menghapus Skill <?= $row['keahlian'] ?> Anda?</h5>
+                            <h5>Anda yakin ingin menghapus Skill "<?= $row['keahlian'] ?>" Anda?</h5>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">Close</button>
                             <a role="submit" class="btn btn-danger btn-success mt-3" href="controller/delete.php?id=<?= $row['id'] ?>">Delete</a>
-                            <!-- <input type="submit" class="btn btn-danger btn-success mt-3" value="Delete"> -->
                         </div>
                     </div>
                 </div>
