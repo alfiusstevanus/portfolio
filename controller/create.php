@@ -3,16 +3,14 @@ include '../server/connection.php';
 
 $keahlian = $_POST['keahlian'];
 $deskripsi = $_POST['deskripsi'];
+$picture = str_replace(' ', '-', $keahlian) . ".jpg";
 
-// if (!empty($_FILES['picture']['tmp_name'])) {
-//     $temp = $_FILES['picture']['tmp_name'];
-//     $picture = str_replace(' ', '-', $productName) . ".jpg";
-//     move_uploaded_file($temp, "../images/" . $picture);
-// } else {
-//     $picture = str_replace(' ', '-', $productName) . ".jpg";
-// }
+if (!empty($_FILES['photo']['tmp_name'])) {
+    $temp = $_FILES['photo']['tmp_name'];
+    move_uploaded_file($temp, "../images/" . $picture);
+}
 
-$query = "INSERT INTO skills VALUES('','$keahlian','$deskripsi')";
+$query = "INSERT INTO skills VALUES('','$keahlian','$deskripsi','$picture')";
 
 if (mysqli_query($conn, $query)) {
     $success = true;

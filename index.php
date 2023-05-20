@@ -30,7 +30,7 @@ include 'layout/header.php';
             <h1 class="fs-2 mb-2">Siapakah saya?</h1>
 
             <div class="content col-md-4">
-                <img class="d-absolute rounded-circle m-20 py-4" src="images/<?= $row['photo'] ?>" alt="<?= $row['nama'] ?>.jpg" style="width: 250px;">
+                <img class="d-absolute rounded-circle m-20 py-4" src="images/<?= $row['photo'] ?>" alt="<?= $row['nama'] ?>" style="width: 250px;">
             </div>
             <div class="content col-md-5">
                 <p class="bg-yellow p-3 rounded-4 text-dark my-shadow">
@@ -41,10 +41,10 @@ include 'layout/header.php';
     </div>
     <div class="d-flex row align-items-center">
         <div class="col-md-2 ">
-            <h1 class="fs-2 py-3 mb-2">My Skills</h1>
+            <h1 class="fs-2 py-3 mb-5">My Skills</h1>
         </div>
         <div class="col-md-2 ">
-            <a type="button" class="btn btn btn-primary bg-success border-0 py-3 mb-2" role="button" data-bs-toggle="modal" data-bs-target="#tambahSkill">
+            <a type="button" class="btn btn btn-primary bg-success border-0 py-3 mb-5" role="button" data-bs-toggle="modal" data-bs-target="#tambahSkill">
                 Add Skill
             </a>
         </div>
@@ -52,7 +52,7 @@ include 'layout/header.php';
             <?php
             if (isset($_GET["login"]) && $_GET["login"] == true) {
             ?>
-                <div id="alert" class="alert alert-success alert-dismissible fade show mt-2 " role="alert">
+                <div id="alert" class="alert alert-success alert-dismissible fade show mb-5 " role="alert">
                     Hai <?php $nama = explode(" ", $row['nama']);
                         echo $nama[0]; ?>, Anda berhasil Login!
                     <a href="index.php" class="btn-close"></a>
@@ -60,36 +60,36 @@ include 'layout/header.php';
             <?php }
             if (isset($_GET["created"]) && $_GET["created"] == true) {
             ?>
-                <div id="alert" class="alert alert-success alert-dismissible fade show mt-2 " role="alert">
+                <div id="alert" class="alert alert-success alert-dismissible fade show mb-5 " role="alert">
                     Skill berhasil ditambahkan!
                     <a href="index.php" class="btn-close"></a>
                 </div>
             <?php } else if (isset($_GET["created"]) && $_GET["created"] == false) { ?>
-                <div id="alert" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                <div id="alert" class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
                     Gagal menambah Skill tersebut!
                     <a href="index.php" class="btn-close"></a>
                 </div>
             <?php }
             if (isset($_GET["updated"]) && $_GET["updated"] == true) {
             ?>
-                <div id="alert" class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                <div id="alert" class="alert alert-success alert-dismissible fade show mb-5" role="alert">
                     Skill tersebut berhasil di-Update!
                     <a href="index.php" class="btn-close"></a>
                 </div>
             <?php } else if (isset($_GET["updated"]) && $_GET["updated"] == false) { ?>
-                <div id="alert" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                <div id="alert" class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
                     Gagal me-Update Skill tersebut!
                     <a href="index.php" class="btn-close"></a>
                 </div>
             <?php }
             if (isset($_GET["deleted"]) && $_GET["deleted"] == true) {
             ?>
-                <div id="alert" class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                <div id="alert" class="alert alert-success alert-dismissible fade show mb-5" role="alert">
                     Skill berhasil dihapus!
                     <a href="index.php" class="btn-close"></a>
                 </div>
             <?php } else if (isset($_GET["deleted"]) && $_GET["deleted"] == false) { ?>
-                <div id="alert" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                <div id="alert" class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
                     Gagal menghapus skill tersebut!
                     <a href="index.php" class="btn-close"></a>
                 </div>
@@ -99,22 +99,22 @@ include 'layout/header.php';
     <div class="row">
         <?php while ($row = mysqli_fetch_assoc($r_skill)) : ?>
             <div class="col-lg-4">
-                <div class="product-item mb-4 bg-yellow p-4 rounded-4">
+                <div class="product-item mb-4 bg-yellow p-4 rounded-4 scale" data-bs-toggle="modal" data-bs-target="#infoSkill<?= $row['id'] ?>">
                     <div class="row justify-content-evenly align-items-center">
                         <div>
                             <h4 class="text-center text-dark form-control"><?= $row['keahlian'] ?></h4>
                         </div>
                         <div>
-                            <textarea class="form-control text-left border-0 my-2 no-scrol readonly-textarea" cols="30" rows="10" readonly><?= $row['deskripsi'] ?></textarea>
-                            <!-- <p class="col-lg-4 form-control text-center border-0 my-2"><?= $row['deskripsi'] ?></p> -->
+                            <img src="images/<?= $row['photo'] ?>" class="ml-2" width="265px" alt="<?= $row['keahlian'] ?>">
+                            <!-- <textarea class="form-control text-left border-0 my-2 no-scrol readonly-textarea" cols="30" rows="10" readonly><?= $row['deskripsi'] ?></textarea> -->
                         </div>
                         <div class="col-lg-4 mt-3">
-                            <a class="btn btn btn-primary bg-success border-0 py-3" role="button" data-bs-toggle="modal" data-bs-target="#editSkill<?= $row['id'] ?>">
+                            <a class="btn btn-primary bg-success border-0 py-3" role="button" data-bs-toggle="modal" data-bs-target="#editSkill<?= $row['id'] ?>">
                                 Update
                             </a>
                         </div>
                         <div class="col-lg-4 mt-3">
-                            <a class="btn btn btn-primary bg-danger border-0 py-3" role="button" data-bs-toggle="modal" data-bs-target="#deleteSkill<?= $row['id'] ?>">
+                            <a class="btn btn-primary bg-danger border-0 py-3" role="button" data-bs-toggle="modal" data-bs-target="#deleteSkill<?= $row['id'] ?>">
                                 Delete
                             </a>
                         </div>
@@ -123,6 +123,37 @@ include 'layout/header.php';
             </div>
 
             <!-- modals start -->
+            <div class="modal fade" id="infoSkill<?= $row['id'] ?>" tabindex="-1" aria-labelledby="infoSkillLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content info-skill">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="infoSkillLabel">Info Skill</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row container row justify-content-center align-items-center">
+                                <div class="col-md-6">
+                                    <div>
+                                        <h5>Keahlian:</h5>
+                                        <p class="form-control my-3"><?= $row['keahlian'] ?></p>
+                                    </div>
+                                    <div>
+                                        <h5>Deskripsi:</h5>
+                                        <textarea name="deskripsi" class="form-control my-3 no-resize" readonly rows="7"><?= $row['deskripsi'] ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="images/<?= $row['photo'] ?>" width="265px" alt="<?= $row['keahlian'] ?>">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="modal fade" id="editSkill<?= $row['id'] ?>" tabindex="-1" aria-labelledby="editSkillLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -131,7 +162,7 @@ include 'layout/header.php';
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="controller/update.php?id=<?= $row['id'] ?>">
+                            <form method="post" action="controller/update.php?id=<?= $row['id'] ?>" enctype="multipart/form-data">
                                 <div class="container">
                                     <div>
                                         <h5>Keahlian:</h5>
@@ -140,12 +171,11 @@ include 'layout/header.php';
                                     <div>
                                         <h5>Deskripsi:</h5>
                                         <textarea name="deskripsi" class="form-control my-3 no-resize" required rows="7"><?= $row['deskripsi'] ?></textarea>
-                                        <!-- <input type="text" name="price" class="form-control my-3" placeholder="Harga Produk" required> -->
                                     </div>
-                                    <!-- <div>
-                                <h5>Foto Produk:</h5>
-                                <input type="file" name="picture" class="form-control my-3" required>
-                            </div> -->
+                                    <div>
+                                        <h5>Edit Photo:</h5>
+                                        <input type="file" name="photo" class="form-control my-3">
+                                    </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">Close</button>
                                         <input type="submit" class="btn btn-primary btn-success mt-3" value="Update">
@@ -184,7 +214,7 @@ include 'layout/header.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="controller/create.php">
+                    <form method="post" action="controller/create.php" enctype="multipart/form-data">
                         <div class="container">
                             <div>
                                 <h5>Masukan Keahlian:</h5>
@@ -193,12 +223,11 @@ include 'layout/header.php';
                             <div>
                                 <h5>Masukan Deskripsi:</h5>
                                 <textarea name="deskripsi" class="form-control my-3 no-resize" placeholder="Deskripsi" required rows="7"></textarea>
-                                <!-- <input type="text" name="price" class="form-control my-3" placeholder="Harga Produk" required> -->
                             </div>
-                            <!-- <div>
-                                <h5>Foto Produk:</h5>
-                                <input type="file" name="picture" class="form-control my-3" required>
-                            </div> -->
+                            <div>
+                                <h5>Upload Photo:</h5>
+                                <input type="file" name="photo" class="form-control my-3" required>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">Close</button>
                                 <input type="submit" class="btn btn-primary btn-success mt-3" value="Add Skill">

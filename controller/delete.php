@@ -1,15 +1,17 @@
 <?php
-session_start();
 include '../server/connection.php';
 
 $id = $_GET["id"];
-// $productName = $_GET["nama"];
+$q = "SELECT keahlian FROM skills where id = '$id'";
+$result = mysqli_query($conn, $q);
+$row = mysqli_fetch_assoc($result);
+$keahlian = $row["keahlian"];
 
-// //menghapus foto di folder images
-// $path = "../images/" . str_replace(' ', '-', $productName) . ".jpg";
-// if (file_exists($path)) {
-//     unlink($path);
-// }
+//menghapus foto di folder images
+$path = "../images/" . str_replace(' ', '-', $keahlian) . ".jpg";
+if (file_exists($path)) {
+    unlink($path);
+}
 
 $query = "DELETE FROM skills WHERE id = '$id'";
 if (mysqli_query($conn, $query)) {

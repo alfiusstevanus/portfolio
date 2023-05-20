@@ -18,7 +18,7 @@
             <div class="container">
                 <a class="navbar-brand mr-10" href="index.php"><img src="images/icon.png" width="30" class="mr-20" alt="icon.png"> My Portfolio</a>
                 <a role="button" data-bs-toggle="modal" data-bs-target="#logout">
-                    <img class="side" width="50" src="images/exit.png" alt="Exit" />
+                    <img class="side my-btn" width="50" src="images/exit.png" alt="Exit" />
                 </a>
             </div>
         </nav>
